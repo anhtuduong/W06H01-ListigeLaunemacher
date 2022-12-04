@@ -75,21 +75,21 @@ public class RecIntListElement {
 		if (next == null) {
 			return value < threshold ? value : 0;
 		}
-		return value < threshold ? value + countThreshLess(threshold) : countThreshLess(threshold);
+		return value < threshold ? value + next.countThreshLess(threshold) : next.countThreshLess(threshold);
 	}
 
 	public long countThreshEqual(int threshold) {
 		if (next == null) {
 			return value == threshold ? value : 0;
 		}
-		return value == threshold ? value + countThreshEqual(threshold) : countThreshEqual(threshold);
+		return value == threshold ? value + next.countThreshEqual(threshold) : next.countThreshEqual(threshold);
 	}
 
 	public long countThreshGreater(int threshold) {
 		if (next == null) {
 			return value > threshold ? value : 0;
 		}
-		return value > threshold ? value + countThreshGreater(threshold) : countThreshGreater(threshold);
+		return value > threshold ? value + next.countThreshGreater(threshold) : next.countThreshGreater(threshold);
 	}
 
 	public void kinguinSort(boolean increasing) {
