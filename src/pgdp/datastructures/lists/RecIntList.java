@@ -86,7 +86,7 @@ public class RecIntList {
 	}
 
 	public static void zip(RecIntList l1, RecIntList l2) {
-		// TODO
+		l1.head.zip(l1.head, l2.head);
 	}
 
 	public static void main(String[] args) {

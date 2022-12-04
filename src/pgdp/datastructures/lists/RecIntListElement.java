@@ -139,6 +139,22 @@ public class RecIntListElement {
 		return prev.reverse();
 	}
 
+	public static void zip(RecIntListElement e1, RecIntListElement e2) {
+		if (e2 == null) {
+			return;
+		}
+		if (e1 == null) {
+			return;
+		}
+		e1.insert(e2.value, 1);
+		if (e1.next.next == null) {
+			e1.next.next = e2.next;
+			e2.next.prev = e1.next;
+			return;
+		}
+		zip(e1.next.next, e2.next);
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
