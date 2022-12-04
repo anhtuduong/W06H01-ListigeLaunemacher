@@ -76,7 +76,9 @@ public class RecIntList {
 	}
 
 	public void kinguinSort(boolean increasing) {
-		// TODO
+		if (head != null && head.getNext() != null) {
+			head.getNext().kinguinSort(increasing);
+		}
 	}
 
 	public void reverse() {

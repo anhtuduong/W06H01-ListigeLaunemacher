@@ -67,6 +67,10 @@ public class RecIntListElement {
 		return next.insert(value, idx - 1);
 	}
 
+	public RecIntListElement getNext() {
+		return next;
+	}
+
 	public long countThreshLess(int threshold) {
 		if (next == null) {
 			return value < threshold ? value : 0;
@@ -86,6 +90,38 @@ public class RecIntListElement {
 			return value > threshold ? value : 0;
 		}
 		return value > threshold ? value + countThreshGreater(threshold) : countThreshGreater(threshold);
+	}
+
+	public void kinguinSort(boolean increasing) {
+		// end of list
+		if (next == null) {
+			if (increasing) {
+				if (value < prev.value) {
+					prev.next = null;
+					return;
+				}
+			}
+			else {
+				if (value > prev.value) {
+					prev.next = null;
+					return;
+				}
+			}
+		}
+		// in list
+		if (increasing) {
+			if (value < prev.value) {
+				prev.next = next;
+				next.prev = prev;
+			}
+		}
+		else {
+			if (value > prev.value) {
+				prev.next = next;
+				next.prev = prev;
+			}
+		}
+		next.kinguinSort(increasing);
 	}
 
 	@Override
