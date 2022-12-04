@@ -67,6 +67,27 @@ public class RecIntListElement {
 		return next.insert(value, idx - 1);
 	}
 
+	public long countThreshLess(int threshold) {
+		if (next == null) {
+			return value < threshold ? value : 0;
+		}
+		return value < threshold ? value + countThreshLess(threshold) : countThreshLess(threshold);
+	}
+
+	public long countThreshEqual(int threshold) {
+		if (next == null) {
+			return value == threshold ? value : 0;
+		}
+		return value == threshold ? value + countThreshEqual(threshold) : countThreshEqual(threshold);
+	}
+
+	public long countThreshGreater(int threshold) {
+		if (next == null) {
+			return value > threshold ? value : 0;
+		}
+		return value > threshold ? value + countThreshGreater(threshold) : countThreshGreater(threshold);
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();

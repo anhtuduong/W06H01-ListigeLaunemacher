@@ -67,8 +67,12 @@ public class RecIntList {
 	}
 
 	public long[] countThresh(int threshold) {
-		// TODO
-		return null;
+		if (head == null) {
+			return new long[] {0, 0, 0};
+		}
+		return new long[] { head.countThreshLess(threshold),
+							head.countThreshEqual(threshold),
+							head.countThreshGreater(threshold) };
 	}
 
 	public void kinguinSort(boolean increasing) {
