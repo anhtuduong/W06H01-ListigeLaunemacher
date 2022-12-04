@@ -124,6 +124,21 @@ public class RecIntListElement {
 		next.kinguinSort(increasing);
 	}
 
+	public RecIntListElement reverse() {
+		if (this == null) {
+			return null;
+		}
+
+		RecIntListElement temp = next;
+		next = prev;
+		prev = temp;
+
+		if (prev == null) {
+			return this;
+		}
+		return prev.reverse();
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();

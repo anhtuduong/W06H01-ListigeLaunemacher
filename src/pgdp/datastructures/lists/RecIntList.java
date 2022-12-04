@@ -82,7 +82,7 @@ public class RecIntList {
 	}
 
 	public void reverse() {
-		// TODO
+		head.reverse();
 	}
 
 	public static void zip(RecIntList l1, RecIntList l2) {
